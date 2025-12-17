@@ -100,7 +100,7 @@ function donate(amount) {
 function share() {
   const url = location.href;
   navigator.clipboard?.writeText(url);
-  toast("Đã copy link! Gửi cho bạn bè để cùng… bị troll 😄");
+  toast("Đã copy URL! Hãy gửi đến bạn bè của bạn để cùng nuôi tôi 💝");
 }
 
 function showProof() {
@@ -124,7 +124,11 @@ function toggleTheme() {
   
   // Load feedCount từ localStorage
   const savedFeedCount = localStorage.getItem("feedCount");
-  if (savedFeedCount) feedCount = parseInt(savedFeedCount, 10) || 0;
+  if (savedFeedCount) {
+    feedCount = parseInt(savedFeedCount, 10) || 999;
+  } else {
+    feedCount = 999; // giá trị mặc định
+  }
   
   setProgress();
 
