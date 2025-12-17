@@ -2,6 +2,7 @@ const fmt = (n) => n.toLocaleString("vi-VN") + "đ";
 
 const goal = 200_000_000;
 let raised = 0;
+let feedCount = 0;
 
 const donors = [
   { name: "Ẩn danh", amount: 9_999_999 },
@@ -18,7 +19,7 @@ function setProgress() {
   el("fill").style.width = pct + "%";
   el("percentText").textContent = pct + "%";
   el("raisedText").textContent = fmt(raised);
-  el("kidsText").textContent = 6969;
+  el("kidsText").textContent = feedCount.toString();
 }
 
 function renderDonors() {
@@ -57,6 +58,19 @@ function openQrModal() {
 // Đóng modal QR
 function closeQrModal() {
   el("qrModal").classList.remove("show");
+}
+
+// Xác nhận đã nuôi
+function confirmFeed() {
+  feedCount++;
+  setProgress();
+  
+  // Lưu vào localStorage
+  localStorage.setItem("feedCount", feedCount);
+  
+  toast("Cảm ơn bạn đã nuôi tôi! 🙏❤️ Tôi sẽ nhớ mãi điều này!");
+  
+  closeQrModal();
 }
 
 // Troll logic: bấm donate thì… tăng chút rồi "rollback"
@@ -107,6 +121,11 @@ function toggleTheme() {
 
   renderDonors();
   raised = 160000000; // số mở màn cho vui
+  
+  // Load feedCount từ localStorage
+  const savedFeedCount = localStorage.getItem("feedCount");
+  if (savedFeedCount) feedCount = parseInt(savedFeedCount, 10) || 0;
+  
   setProgress();
 
   el("btnDonate").addEventListener("click", openQrModal);
@@ -117,6 +136,7 @@ function toggleTheme() {
   // Modal controls
   el("modalClose").addEventListener("click", closeQrModal);
   el("modalOverlay").addEventListener("click", closeQrModal);
+  el("btnConfirmDonate").addEventListener("click", confirmFeed);
 
   // ESC key để đóng modal
   document.addEventListener("keydown", (e) => {
