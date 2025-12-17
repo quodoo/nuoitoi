@@ -18,8 +18,7 @@ function setProgress() {
   el("fill").style.width = pct + "%";
   el("percentText").textContent = pct + "%";
   el("raisedText").textContent = fmt(raised);
-  // số “em” được nuôi: công thức troll nhẹ
-  el("kidsText").textContent = Math.max(1, Math.floor((raised / 10_000) % 997)).toString();
+  el("kidsText").textContent = 6969;
 }
 
 function renderDonors() {
@@ -50,9 +49,19 @@ function escapeHtml(s) {
   }[c]));
 }
 
-// Troll logic: bấm donate thì… tăng chút rồi “rollback”
+// Mở modal QR
+function openQrModal() {
+  el("qrModal").classList.add("show");
+}
+
+// Đóng modal QR
+function closeQrModal() {
+  el("qrModal").classList.remove("show");
+}
+
+// Troll logic: bấm donate thì… tăng chút rồi "rollback"
 function donate(amount) {
-  const add = Number(amount) || 10_000;
+  const add = Number(amount) || 100_000;
 
   const fakeGain = Math.min(add, 500_000);
   raised += fakeGain;
@@ -61,7 +70,7 @@ function donate(amount) {
   toast(`Cảm ơn bạn đã ủng hộ ${fmt(add)}! (đang xử lý...)`);
 
   setTimeout(() => {
-    // rollback kiểu “minh bạch”
+    // rollback kiểu "minh bạch"
     const rollback = Math.floor(fakeGain * 0.85);
     raised = Math.max(0, raised - rollback);
     setProgress();
@@ -97,13 +106,22 @@ function toggleTheme() {
   if (saved === "light") document.documentElement.classList.add("light");
 
   renderDonors();
-  raised = 12_345_678; // số mở màn cho vui
+  raised = 160000000; // số mở màn cho vui
   setProgress();
 
-  el("btnDonate").addEventListener("click", () => donate(50_000));
+  el("btnDonate").addEventListener("click", openQrModal);
   el("btnShare").addEventListener("click", share);
   el("btnProof").addEventListener("click", showProof);
   el("btnTheme").addEventListener("click", toggleTheme);
+
+  // Modal controls
+  el("modalClose").addEventListener("click", closeQrModal);
+  el("modalOverlay").addEventListener("click", closeQrModal);
+
+  // ESC key để đóng modal
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeQrModal();
+  });
 
   document.querySelectorAll(".pack").forEach(btn => {
     btn.addEventListener("click", () => donate(btn.dataset.amt));

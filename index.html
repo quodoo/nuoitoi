@@ -38,7 +38,7 @@
           <div class="value" id="raisedText">0đ</div>
         </div>
         <div class="stat">
-          <div class="label">Cảm ơn bạn đã nuôi tôi</div>
+          <div class="label">Số lần được nuôi</div>
           <div class="value" id="kidsText">0</div>
         </div>
       </div>
@@ -60,10 +60,11 @@
         <button id="btnProof" class="btn ghost" type="button">Xem sao kê</button>
       </div>
     </section>
-    <div class="card qr-box">
+     <div class="card qr-box">
         <p class="muted">Quét mã để ủng hộ nhanh</p>
         <img src="./qr.png" alt="QR ủng hộ Nuôi Tôi" class="qr-img">
         <p class="fineprint">* QR là thật và bạn đang chuyển khoản để nuôi tôi 😇</p>
+        <!-- <p class="fineprint" style="margin-top: 12px; line-height: 1.5;"><b>Lưu ý:</b> Mọi số tiền chuyển khoản đều được đưa vào ví của tôi, bạn hoàn toàn chịu trách nhiệm trước việc chuyển khoản, đây là hành động tự nguyện nhằm mục đích nuôi tôi. Xin cảm ơn!</p> -->
     </div>
     <aside class="card side">
       <h2>Top mạnh thường quân</h2>
@@ -73,9 +74,9 @@
 
       <h2>Gói ủng hộ</h2>
       <div class="packs">
-        <button class="pack" data-amt="10000">10.000đ<br><span class="muted">1 bữa “mini”</span></button>
-        <button class="pack" data-amt="50000">50.000đ<br><span class="muted">5 bữa “xịn”</span></button>
-        <button class="pack" data-amt="200000">200.000đ<br><span class="muted">admin cười cả ngày</span></button>
+        <button class="pack" data-amt="100000">100.000đ<br><span class="muted">1 bữa cơm ngon</span></button>
+        <button class="pack" data-amt="500000">500.000đ<br><span class="muted">Tặng tôi một em chân dài (45kg)</span></button>
+        <button class="pack" data-amt="2000000">2.000.000đ<br><span class="muted">Bạn đã cho tôi một đêm không ngủ !!!</span></button>
       </div>
 
       <div class="divider"></div>
@@ -111,7 +112,7 @@
           <div class="dot">2</div>
           <div>
             <div class="st">Đóng góp</div>
-            <div class="sd muted">Bạn bấm “Ủng hộ” với niềm tin rực cháy.</div>
+            <div class="sd muted">Bạn bấm “Ủng hộ ngay” với niềm tin rực cháy.</div>
           </div>
         </div>
         <div class="step">
@@ -134,11 +135,23 @@
 
   <footer class="wrap footer">
     <div class="muted">
-      © <span id="year"></span> Nuôi Tôi. Không hoàn lại tiền.
+      © <span id="year"></span> Nuôi Tôi. Dự án không hoàn lại tiền. Xin cảm ơn!
     </div>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Modal QR -->
+  <div class="modal" id="qrModal">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" type="button">✕</button>
+      <h2 style="margin-top: 0;">Quét mã để ủng hộ</h2>
+      <img src="./qr.png" alt="QR ủng hộ Nuôi Tôi" class="qr-img">
+      <p class="fineprint">* QR là thật và bạn đang chuyển khoản để nuôi tôi 😇</p>
+      <p class="fineprint" style="margin-top: 12px; line-height: 1.5; text-align: left;"><b>Lưu ý:</b> Mọi số tiền chuyển khoản đều được đưa vào ví của tôi, bạn hoàn toàn chịu trách nhiệm trước việc chuyển khoản, đây là hành động tự nguyện nhằm mục đích nuôi tôi. Xin cảm ơn!</p>
+    </div>
+  </div>
 
   <script src="./app.js"></script>
 </body>
