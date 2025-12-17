@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dự án Nuôi Tôi</title>
+  <link rel="stylesheet" href="./style.css" />
+  <meta name="description" content="Dự án Nuôi Tôi (GitHub Pages)" />
+</head>
+<body>
+  <header class="wrap header">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">🍚</div>
+      <div>
+        <div class="name">Dự án Nuôi Tôi</div>
+        <div class="tag">Phiên bản “minh bạch tuyệt đối”</div>
+      </div>
+    </div>
+    <button id="btnThtôie" class="btn ghost" type="button" title="Đổi giao diện">🌓</button>
+  </header>
+
+  <main class="wrap grid">
+    <section class="card hero">
+      <h1>Nuôi Tôi — để tôi no… <span class="muted">(và bạn vui)</span></h1>
+      <p class="lead">
+        Mỗi khoản chuyển khoản của bạn sẽ góp phần giúp
+        <b>tôi được no hơn một chút</b> và mang lại
+        <b>niềm vui tinh thần cho bạn</b>. 😄
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Mục tiêu tháng này</div>
+          <div class="value" id="goalText">200.000.000đ</div>
+        </div>
+        <div class="stat">
+          <div class="label">Đã quyên góp</div>
+          <div class="value" id="raisedText">0đ</div>
+        </div>
+        <div class="stat">
+          <div class="label">Bạn đã nuôi tôi được (nháy)</div>
+          <div class="value" id="kidsText">0</div>
+        </div>
+      </div>
+
+      <div class="progress">
+        <div class="bar">
+          <div class="fill" id="fill"></div>
+        </div>
+        <div class="progressRow">
+          <span id="percentText">0%</span>
+          <span class="muted" id="noteText">Cập nhật theo thời gian thực*</span>
+        </div>
+        <div class="fineprint">* Thời gian thực theo… cảm xúc của hệ thống.</div>
+      </div>
+
+      <div class="actions">
+        <button id="btnDonate" class="btn primary" type="button">Ủng hộ ngay</button>
+        <button id="btnShare" class="btn" type="button">Chia sẻ</button>
+        <button id="btnProof" class="btn ghost" type="button">Xem sao kê</button>
+      </div>
+    </section>
+    <div class="card qr-box">
+        <p class="muted">Quét mã để ủng hộ nhanh</p>
+        <img src="./qr.png" alt="QR ủng hộ Nuôi Tôi" class="qr-img">
+        <p class="fineprint">* QR là thật và bạn đang chuyển khoản để nuôi tôi 😇</p>
+    </div>
+    <aside class="card side">
+      <h2>Top mạnh thường quân</h2>
+      <ul class="list" id="donorList"></ul>
+
+      <div class="divider"></div>
+
+      <h2>Gói ủng hộ</h2>
+      <div class="packs">
+        <button class="pack" data-amt="10000">10.000đ<br><span class="muted">1 bữa “mini”</span></button>
+        <button class="pack" data-amt="50000">50.000đ<br><span class="muted">5 bữa “xịn”</span></button>
+        <button class="pack" data-amt="200000">200.000đ<br><span class="muted">admin cười cả ngày</span></button>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Tiền của tôi đi đâu?</summary>
+          <p>Đi vào “quỹ” — và quỹ thì đi vào… lòng tin. (đùa thôi, vào tài khoản của tôi mà 😄)</p>
+        </details>
+        <details>
+          <summary>Có minh bạch không?</summary>
+          <p>Minh bạch: bạn thấy rõ là bạn đã bị troll.</p>
+        </details>
+        <details>
+          <summary>Tôi muốn phiên bản nghiêm túc</summary>
+          <p>Ok — nói mình biết bạn muốn thtôie/section gì, mình chỉnh theo kiểu charity landing page chuẩn.</p>
+        </details>
+      </div>
+    </aside>
+
+    <section class="card timeline">
+      <h2>Hành trình “nuôi tôi”</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="dot">1</div>
+          <div>
+            <div class="st">Kêu gọi</div>
+            <div class="sd muted">Lời kêu gọi cảm động, nhạc nền piano…</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">2</div>
+          <div>
+            <div class="st">Đóng góp</div>
+            <div class="sd muted">Bạn bấm “Ủng hộ” với niềm tin rực cháy.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">3</div>
+          <div>
+            <div class="st">Cập nhật</div>
+            <div class="sd muted">Tiến độ nhảy số… hơi nghệ thuật.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">4</div>
+          <div>
+            <div class="st">Cảm ơn</div>
+            <div class="sd muted">Bạn nhận được một cái ôm online 🫶</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <div class="muted">
+      © <span id="year"></span> Nuôi Tôi. Không hoàn lại tiền.
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
